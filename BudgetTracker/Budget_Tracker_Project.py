@@ -140,7 +140,7 @@ def main(page: ft.Page):
                                         color=ft.Colors.GREY_400)
                             ]),
                             ft.IconButton(
-                                ft.icons.DELETE,
+                                ft.Icons.DELETE,
                                 on_click=lambda e, i=idx: delete_expense(i),
                                 icon_color=ft.Colors.RED_ACCENT
                             )
@@ -150,7 +150,7 @@ def main(page: ft.Page):
                     padding=15,
                 ),
                 elevation=3,
-                color=ft.colors.with_opacity(0.1, ft.Colors.WHITE),
+                color=ft.Colors.with_opacity(0.1, ft.Colors.WHITE),
                 shape=ft.RoundedRectangleBorder(radius=10)
             )
             expense_list.controls.append(expense_card)
@@ -193,8 +193,8 @@ def main(page: ft.Page):
         refresh_ui()
         update_pie_chart()
 
-        def fill_today_date(e):
-            date_picker.value = datetime.date.today()
+    def fill_today_date(e):
+        date_picker.value = datetime.date.today()
         date_picker.update()
 
     add_date_button = ft.ElevatedButton("📅 Add Today’s Date", on_click=fill_today_date, style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=12)))
