@@ -1,4 +1,4 @@
-#print("Script started running")
+
 
 import flet as ft  # 1st: Import Flet for UI components
 import datetime   # 2nd: Import datetime for date handling
@@ -6,14 +6,12 @@ import json       # 3rd: Import json for saving/loading data
 import os         # 4th: Import os to check file existence
 from collections import defaultdict  # 5th: For summing categories
 
-# 6th: File to store expenses data persistently
+
 DATA_FILE = "expenses.json"
 
-# 7th: List of months for filtering
 months = ["All", "January", "February", "March", "April", "May", "June",
 "July", "August", "September", "October", "November", "December"]
 
-# 8th: Global expenses list (will hold dicts)
 expenses = []
 
 # 9th: Save expenses list to JSON file
@@ -49,20 +47,20 @@ def main(page: ft.Page):
     page.padding = 20
     page.scroll = ft.ScrollMode.AUTO
 
-    # 12th: Load saved expenses on start
+
     load_expenses()
 
-    # 13th: Title text
+
     title_text = ft.Text("💰 Expense Tracker", size=32, weight=ft.FontWeight.BOLD, color=ft.Colors.CYAN)
 
-    # 14th: Dropdown for filtering by month
+
     month_filter = ft.Dropdown(
         label="Filter by Month",
         options=[ft.dropdown.Option(m) for m in months],
         value="All"
     )
 
-    # 15th: Input fields for new expense
+    
     title_input = ft.TextField(label="Title", width=200)
     amount_input = ft.TextField(label="Amount (₹)", width=120, keyboard_type=ft.KeyboardType.NUMBER)
     category_input = ft.Dropdown(
@@ -196,15 +194,15 @@ def main(page: ft.Page):
         update_pie_chart()
 
         def fill_today_date(e):
-        date_picker.value = datetime.date.today()
+            date_picker.value = datetime.date.today()
         date_picker.update()
 
     add_date_button = ft.ElevatedButton("📅 Add Today’s Date", on_click=fill_today_date, style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=12)))
 
-    # 23rd: Add button for adding expenses
+
     add_button = ft.ElevatedButton("➕ Add Expense", on_click=add_expense, style=ft.ButtonStyle(shape=ft.RoundedRectangleBorder(radius=12)))
 
-    # 24th: Input row layout
+ 
     input_row = ft.ResponsiveRow([
     title_input,
     amount_input,
