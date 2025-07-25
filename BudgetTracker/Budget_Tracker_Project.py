@@ -46,14 +46,8 @@ def main(page: ft.Page):
     page.theme_mode = ft.ThemeMode.DARK        # Dark theme for style
     page.padding = 20
     page.scroll = ft.ScrollMode.AUTO
-
-
     load_expenses()
-
-
     title_text = ft.Text("💰 Expense Tracker", size=32, weight=ft.FontWeight.BOLD, color=ft.Colors.CYAN)
-
-
     month_filter = ft.Dropdown(
         label="Filter by Month",
         options=[ft.dropdown.Option(m) for m in months],
